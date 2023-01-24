@@ -1,27 +1,20 @@
 ## Airflow Example
-Airflow Example
+Airflow 2.3.0 Example
 
 ## Quick Start
+
+### Prerequisite
+- Docker Compose
+- Python 3.6~
 
 ### Installation
 
 ```bash
-$ python -m venv venv
-$ source venv/bin/activate
-$ pip install -r requirements.txt
-$ export AIRFLOW_HOME=~/airflow
-
-# change load_examples = False
-$ airflow db init
-$ vim $AIRFLOW_HOME/airflow.cfg
-$ airflow users create \
-    --username admin \
-    --firstname Park \
-    --lastname Minjae \
-    --role Admin \
-    --email sobu0715@gmail.com
-$ airflow webserver --port 8080
-
-# In another terminal
-$ airflow scheduler
+$ mkdir -p ./dags ./logs ./plugins
+$ echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env
+$ docker-compose up -d
 ```
+
+### Login
+- Go to http://localhost:8080
+- Login (id: airflow, password: airflow)
